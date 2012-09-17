@@ -15,10 +15,10 @@ public class Solution {
         boolean inserted = false;
         for (int i = 0; i < intervals.size(); i++){
             Interval i1 =intervals.get(i);
-            if (smaller(i1, newInterval)){
+            if (i1.end < newInterval.start)){
                 result.add(i1);
             }
-            else if (smaller(newInterval, i1)){
+            else if (newInterval.end < i1.start){
                 result.add(newInterval);
                 result.addAll(intervals.subList(i, intervals.size()));
                 inserted = true;
@@ -31,11 +31,7 @@ public class Solution {
         if (!inserted) result.add(newInterval);
         return result;
     }
-    
-    public boolean smaller(Interval i1, Interval i2){
-        return i1.end < i2.start;
-    }
-    
+
     public Interval merge(Interval i1, Interval i2){
         int start = (i1.start < i2.start) ? i1.start : i2.start;
         int end = (i1.end > i2.end) ? i1.end : i2.end;
