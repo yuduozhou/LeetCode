@@ -3,7 +3,6 @@ public class Solution {
         // Start typing your Java solution below
         // DO NOT write main() function
         int length = s.length();
-        if (length == 0) return "";
         if (length <= nRows || nRows == 1) return s;
         char[] chars = new char[length];
         int step = 2 * (nRows - 1);
